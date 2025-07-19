@@ -1,7 +1,4 @@
 #include "gst-cocoa.h"
-#include <AppKit/AppKit.h>
-#include <Foundation/Foundation.h>
-#include <stdio.h>
 
 @interface GSTCocoaAppDelegate : NSObject <NSApplicationDelegate>
 @end
@@ -17,7 +14,7 @@
 static GSTCocoaAppDelegate *appDelegate;
 static NSAutoreleasePool *autoreleasePool;
 
-void cocoa_start() {
+void cocoa_application_start() {
     // Create a memory pool that will be drained upon release.
     autoreleasePool = [[NSAutoreleasePool alloc] init];
     
@@ -29,23 +26,22 @@ void cocoa_start() {
     [NSApp setDelegate:appDelegate];
 }
 
-void cocoa_startRunLoop() {
+void cocoa_application_startRunLoop() {
     [NSApp run];
     [autoreleasePool drain];
 }
 
-void cocoa_stopRunLoop() {
+void cocoa_application_stopRunLoop() {
     [NSApp stop:NSApp];
 }
 
-void cocoa_makeWindow(int width, int height, char *title) {
+NSWindow *cocoa_window_make(int width, int height) {
     NSUInteger windowStyle = NSWindowStyleMaskTitled | NSWindowStyleMaskClosable | NSWindowStyleMaskResizable;
     NSRect windowRect = NSMakeRect(0, 0, width, height);
     NSWindow * window = [[NSWindow alloc] initWithContentRect:windowRect
                                           styleMask:windowStyle
                                           backing:NSBackingStoreBuffered
                                           defer:NO];
-    [window setTitle:[NSString stringWithCString:title encoding:NSUTF8StringEncoding]];
     [window autorelease];
 
     NSWindowController * windowController = [[NSWindowController alloc] initWithWindow:window];
@@ -53,6 +49,12 @@ void cocoa_makeWindow(int width, int height, char *title) {
 
     [window makeKeyWindow];
     [window orderFrontRegardless];
+    
+    return window;
+}
+
+void cocoa_window_setTitle(NSWindow *window, char *title) {
+[window setTitle:[NSString stringWithCString:title encoding:NSUTF8StringEncoding]];
 }
 
 void cocoa_output(char *text) {
