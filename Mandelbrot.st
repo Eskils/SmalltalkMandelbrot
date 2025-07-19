@@ -1,5 +1,7 @@
-FileStream fileIn: 'CocoaWindow.st'.
+FileStream fileIn: './GSTCocoa/GSTCocoa.st'.
 
-CocoaWindow start.
-CocoaWindow makeWindowOfSize: 300 height: 200 title: 'Mandelbrot'.
-CocoaWindow startRunLoop.
+| application window |
+application := CocoaApplication start.
+window := application makeWindowOfWidth: 300 andHeight: 200.
+window setTitle: 'Mandelbrot'.
+application startRunLoop.
