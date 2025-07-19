@@ -1,3 +1,5 @@
 FileStream fileIn: 'CocoaWindow.st'.
 
-CocoaWindow output: 'Mandelbrot'.
+CocoaWindow start.
+CocoaWindow makeWindowOfSize: 300 height: 200 title: 'Mandelbrot'.
+CocoaWindow startRunLoop.
