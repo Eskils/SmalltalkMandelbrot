@@ -28,3 +28,11 @@ void cocoa_view_setBackground(NSView *view, unsigned int red, unsigned int green
         [layer setBackgroundColor: [color CGColor]];
     }
 }
+
+unsigned int kCocoaViewNotSizable() { return NSViewNotSizable; }
+unsigned int kCocoaViewMinXMargin() { return NSViewMinXMargin; }
+unsigned int kCocoaViewWidthSizable() { return NSViewWidthSizable; }
+unsigned int kCocoaViewMaxXMargin() { return NSViewMaxXMargin; }
+unsigned int kCocoaViewMinYMargin() { return NSViewMinYMargin; }
+unsigned int kCocoaViewHeightSizable() { return NSViewHeightSizable; }
+unsigned int kCocoaViewMaxYMargin() { return NSViewMaxYMargin; }
