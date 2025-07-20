@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 #include <AppKit/AppKit.h>
-#include <Foundation/Foundation.h>
+#include "GSTCocoaAppDelegate.h"
 
 void cocoa_application_start();
 void cocoa_application_startRunLoop();

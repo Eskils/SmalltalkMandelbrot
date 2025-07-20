@@ -1,16 +1,5 @@
 #include "gst-cocoa.h"
 
-@interface GSTCocoaAppDelegate : NSObject <NSApplicationDelegate>
-@end
-
-@implementation GSTCocoaAppDelegate
-
-- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender {
-    return YES;
-}
-
-@end
-
 static GSTCocoaAppDelegate *appDelegate;
 static NSAutoreleasePool *autoreleasePool;
 
