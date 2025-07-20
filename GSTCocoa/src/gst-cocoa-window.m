@@ -23,3 +23,7 @@ NSWindow *cocoa_window_make(int width, int height) {
 void cocoa_window_setTitle(NSWindow *window, char *title) {
     [window setTitle:[NSString stringWithCString:title encoding:NSUTF8StringEncoding]];
 }
+
+NSView *cocoa_window_contentView(NSWindow *window) {
+    return [window contentView];
+}
