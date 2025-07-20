@@ -30,6 +30,3 @@ make_directories:
 clean:
 	rm -rf $(BUILD_BIN_DIR)
 	rm -rf $(BUILD_DIR)
-
-run:
-	gst Mandelbrot.st
