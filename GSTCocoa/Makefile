@@ -1,6 +1,6 @@
 # Directories and files
 ROOT_DIR:=.
-SOURCES_DIR:=.
+SOURCES_DIR:=./src
 BUILD_DIR:=$(ROOT_DIR)/.build
 BUILD_BIN_DIR:=$(ROOT_DIR)/lib
 BUILD_RESULT:=$(BUILD_BIN_DIR)/libGSTCocoa.dylib
