@@ -12,7 +12,7 @@ OBJECTS:=$(M_OBJECTS)
 ARTIFACTS:=$(foreach obj,$(OBJECTS),$(BUILD_DIR)/$(notdir $(obj)))
 
 # Flags
-LFLAGS:=-dynamiclib -framework Cocoa 
+LFLAGS:=-dynamiclib -framework Cocoa
 
 # Rules
 all: make_directories $(BUILD_RESULT)
