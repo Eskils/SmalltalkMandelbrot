@@ -7,5 +7,8 @@ $(SUBDIRS):
 
 .PHONY: all $(SUBDIRS)
 
+clean: $(SUBDIRS)
+	$(MAKE) -C $? clean
+
 run:
 	gst Mandelbrot.st

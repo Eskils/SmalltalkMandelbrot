@@ -1,4 +1,5 @@
-#include "gst-cocoa.h"
+#include "gst-cocoa-window.h"
+#include <AppKit/AppKit.h>
 
 NSWindow *cocoa_window_make(int width, int height) {
     NSUInteger windowStyle = NSWindowStyleMaskTitled | NSWindowStyleMaskClosable | NSWindowStyleMaskResizable;
@@ -13,15 +14,12 @@ NSWindow *cocoa_window_make(int width, int height) {
     [windowController autorelease];
 
     [window makeKeyWindow];
-    [window orderFrontRegardless];
+    [window setLevel:NSStatusWindowLevel];
+    [window makeKeyAndOrderFront:NSApp];
     
     return window;
 }
 
 void cocoa_window_setTitle(NSWindow *window, char *title) {
-[window setTitle:[NSString stringWithCString:title encoding:NSUTF8StringEncoding]];
-}
-
-void cocoa_output(char *text) {
-    printf("Output: %s\n", text);
+    [window setTitle:[NSString stringWithCString:title encoding:NSUTF8StringEncoding]];
 }
