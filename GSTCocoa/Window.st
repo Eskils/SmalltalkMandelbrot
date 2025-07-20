@@ -30,6 +30,12 @@ setTitle: aTitle
     "I change the title of this window"
     CocoaWindow window: windowReference setTitle: aTitle! !
 
+!CocoaWindow methodsFor: 'Views'!
+
+contentView
+    ^CocoaView viewWithReference:
+        (CocoaWindow contentViewForWindow: windowReference)!
+
 !CocoaWindow class methodsFor: 'C call-outs'!
 
 cocoa_window_make: aWidth height: aHeight
@@ -41,4 +47,9 @@ window: windowReference setTitle: aTitle
     "I change the title of this window"
     <cCall: 'cocoa_window_setTitle' returning: #void
         args: #( #cObject #string )>!
+
+contentViewForWindow: windowReference
+    "I tell you about the content view of this window"
+    <cCall: 'cocoa_window_contentView' returning: #cObject
+        args: #( #cObject )>!
 ! !
