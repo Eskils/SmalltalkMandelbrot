@@ -1,7 +1,14 @@
 FileStream fileIn: './GSTCocoa/GSTCocoa.st'.
 
-| application window |
+| application window contentView box |
 application := CocoaApplication start.
 window := application makeWindowOfWidth: 300 andHeight: 200.
 window setTitle: 'Mandelbrot'.
+
+contentView := window contentView.
+box := CocoaView x: 8 y: 8 width: (300 - 16) height: (200 - 16).
+box setBackgroundRed: 50 green: 100 blue: 200.
+box setAutoresizingMask: (CocoaView widthSizable) + (CocoaView heightSizable).
+contentView addSubview: box.
+
 application startRunLoop.
