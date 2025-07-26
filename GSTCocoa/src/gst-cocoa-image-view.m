@@ -10,3 +10,12 @@ void cocoa_image_view_setImage(NSImageView *imageView, CGImageRef image) {
     NSImage *nsImage = [[NSImage alloc] initWithCGImage:image size:size];
     [imageView setImage:nsImage];
 }
+
+void cocoa_image_view_setImageScaling(NSImageView *imageView, NSImageScaling imageScaling) {
+    [imageView setImageScaling: imageScaling];
+}
+
+unsigned int kCocoaImageScaleProportionallyDown() { return NSImageScaleProportionallyDown; }
+unsigned int kCocoaImageScaleAxesIndependently() { return NSImageScaleAxesIndependently; }
+unsigned int kCocoaImageScaleNone() { return NSImageScaleNone; }
+unsigned int kCocoaImageScaleProportionallyUpOrDown() { return NSImageScaleProportionallyUpOrDown; }
