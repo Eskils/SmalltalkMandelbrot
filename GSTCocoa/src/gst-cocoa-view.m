@@ -1,5 +1,4 @@
 #include "gst-cocoa-view.h"
-#include <AppKit/AppKit.h>
 
 NSView *cocoa_view_make(double x, double y, double width, double height) {
     return [[NSView alloc] initWithFrame:CGRectMake((CGFloat)x, (CGFloat)y, (CGFloat)width, (CGFloat)height)];
