@@ -9,11 +9,11 @@ window := application makeWindowOfWidth: width andHeight: height.
 window setTitle: 'Mandelbrot'.
 
 contentView := window contentView.
-box := CocoaImageView x: 0 y: 0 width: width height: height.
-box setBackgroundRed: 50 green: 100 blue: 200.
-box setImageScaling: CocoaImageView scaleAxesIndependently.
-box setAutoresizingMask: (CocoaView widthSizable) + (CocoaView heightSizable).
-contentView addSubview: box.
+imageView := CocoaImageView x: 0 y: 0 width: width height: height.
+imageView setBackgroundRed: 50 green: 100 blue: 200.
+imageView setImageScaling: CocoaImageView scaleAxesIndependently.
+imageView setAutoresizingMask: (CocoaView widthSizable) + (CocoaView heightSizable).
+contentView addSubview: imageView.
 
 imageData := ByteArray new: (components * width * height).
 
@@ -43,6 +43,6 @@ height timesRepeat: [
 
 context := CoreGraphicsContext width: width height: height.
 context updateFromByteArray: imageData.
-box setImage: (context image).
+imageView setImage: (context image).
 
 application startRunLoop.
