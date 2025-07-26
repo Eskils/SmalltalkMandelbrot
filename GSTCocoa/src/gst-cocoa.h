@@ -5,5 +5,6 @@
 #include "gst-cocoa-window.h"
 #include "gst-cocoa-view.h"
 #include "gst-cocoa-image-view.h"
+#include "gst-core-graphics-shims.h"
 
 #endif
