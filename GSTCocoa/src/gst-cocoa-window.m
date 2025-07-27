@@ -13,6 +13,7 @@ NSWindow *cocoa_window_make(int width, int height) {
     NSWindowController * windowController = [[NSWindowController alloc] initWithWindow:window];
     [windowController autorelease];
 
+    [window center];
     [window makeKeyWindow];
     [window setLevel:NSStatusWindowLevel];
     [window makeKeyAndOrderFront:NSApp];
