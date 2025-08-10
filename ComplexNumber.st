@@ -18,7 +18,7 @@ magnitude: aLength argument: anAngle
 
 zero
     "I create a new complex number with a magnitude of 0."
-    ^ComplexNumber real: 0.0 imaginary: 0.0!
+    ^ComplexNumber real: 0 imaginary: 0!
 
 !ComplexNumber methodsFor: 'Accessing'!
 

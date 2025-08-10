@@ -6,19 +6,18 @@ height := 200.
 windowScale := 3.
 components := 4.
 iterations := 20.
-power := 2.0.
-translation := Point x: -0.5 y: 0.0.
+power := 2.
+translation := Point x: -0.5 y: 0.
 
 application := CocoaApplication start.
 window := application makeWindowOfWidth: windowScale * width andHeight: windowScale * height.
 window setTitle: 'Mandelbrot'.
 
-contentView := window contentView.
 imageView := CocoaImageView x: 0 y: 0 width: windowScale * width height: windowScale * height.
 imageView setBackgroundRed: 50 green: 100 blue: 200.
 imageView setImageScaling: CocoaImageView scaleAxesIndependently.
 imageView setAutoresizingMask: (CocoaView widthSizable) + (CocoaView heightSizable).
-contentView addSubview: imageView.
+(window contentView) addSubview: imageView.
 
 imageData := ByteArray new: (components * width * height).
 
@@ -27,18 +26,18 @@ imageData := ByteArray new: (components * width * height).
         | red green blue alpha offset c z i threshold |
         offset := components * (y * width + x) + 1.
         c := ComplexNumber
-            real: 2.0 * (x / width) - 1.0 + (translation x)
-            imaginary: 2.0 * (y / height) - 1.0 + (translation y).
+            real: 2 * (x / width) - 1 + (translation x)
+            imaginary: 2 * (y / height) - 1 + (translation y).
         z := c.
         i := 0.
 
         [
             z := (z raisedTo: power) + c.
             i := i + 1.
-            (i < iterations) & (z magnitudeSquared < 4.0)
+            (i < iterations) & (z magnitudeSquared < 4)
         ] whileTrue.
 
-        threshold := 1.0 - (i / iterations).
+        threshold := 1 - (i / iterations).
 
         (i = iterations) 
             ifTrue: [
