@@ -26,7 +26,7 @@ windowReference: reference
 
 !CocoaWindow methodsFor: 'Customizations'!
 
-setTitle: aTitle
+title: aTitle
     "I change the title of this window"
     CocoaWindow window: windowReference setTitle: aTitle! !
 

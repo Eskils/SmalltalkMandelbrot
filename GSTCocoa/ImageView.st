@@ -13,11 +13,11 @@ x: anXCoordinate y: aYCoordinate width: aWidth height: aHeight
 
 !CocoaImageView methodsFor: 'Displaying images'!
 
-setImage: anImage
+image: anImage
     "I set the image of the given image view"
     CocoaImageView cocoa_image_view_setImage: viewReference image: anImage!
 
-setImageScaling: anImageScaling
+imageScaling: anImageScaling
     "I set the mode for scaling the displayed image."
     CocoaImageView cocoa_image_view_setImageScaling: viewReference imageScaling: anImageScaling!
 

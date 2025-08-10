@@ -26,17 +26,17 @@ viewReference: reference
 
 !CocoaView methodsFor: 'Style'!
 
-setBackgroundRed: aRedComponent green: aGreenComponent blue: aBlueComponent
+backgroundRed: aRedComponent green: aGreenComponent blue: aBlueComponent
     "I change the background color of this view"
     CocoaView view: viewReference setBackgroundRed: aRedComponent green: aGreenComponent blue: aBlueComponent!
 
 !CocoaView methodsFor: 'Layout'!
 
-setFrame: anXCoordinate y: aYCoordinate width: aWidth height: aHeight
+frame: anXCoordinate y: aYCoordinate width: aWidth height: aHeight
     "I change the size and position of this view"
     CocoaView view: viewReference setFrame: anXCoordinate y: aYCoordinate width: aWidth height: aHeight!
 
-setAutoresizingMask: aMask
+autoresizingMask: aMask
     "I change the autoresizing mask of this view"
     CocoaView view: viewReference setAutoresizingMask: aMask!
 

@@ -11,12 +11,12 @@ translation := Point x: -0.5 y: 0.
 
 application := CocoaApplication start.
 window := application makeWindowOfWidth: windowScale * width andHeight: windowScale * height.
-window setTitle: 'Mandelbrot'.
+window title: 'Mandelbrot'.
 
 imageView := CocoaImageView x: 0 y: 0 width: windowScale * width height: windowScale * height.
-imageView setBackgroundRed: 50 green: 100 blue: 200.
-imageView setImageScaling: CocoaImageView scaleAxesIndependently.
-imageView setAutoresizingMask: (CocoaView widthSizable) + (CocoaView heightSizable).
+imageView backgroundRed: 50 green: 100 blue: 200.
+imageView imageScaling: CocoaImageView scaleAxesIndependently.
+imageView autoresizingMask: (CocoaView widthSizable) + (CocoaView heightSizable).
 (window contentView) addSubview: imageView.
 
 imageData := ByteArray new: (components * width * height).
@@ -62,6 +62,6 @@ imageData := ByteArray new: (components * width * height).
 
 context := CoreGraphicsContext width: width height: height.
 context updateFromByteArray: imageData.
-imageView setImage: (context image).
+imageView image: (context image).
 
 application startRunLoop.
