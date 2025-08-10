@@ -7,35 +7,37 @@ Object subclass: #CoreGraphicsContext
 !CoreGraphicsContext class methodsFor: 'Instance creation'!
 
 width: aWidth height: aHeight
-    "I create a new context of the given dimensions."
+    "Answer a CoreGraphicsContext of size aWidth by aHeight"
     ^CoreGraphicsContext contextWithReference:
         (CoreGraphicsContext cg_context_create: aWidth height: aHeight)!
 
-contextWithReference: reference
-    "I create a new context with the given reference."
+contextWithReference: aReference
+    "Answer a CoreGraphicsContext backed by aReference"
     ^super new
-        contextReference: reference!
+        contextReference: aReference!
 
 !CoreGraphicsContext methodsFor: 'Accessors'!
 
 contextReference
+    "Answer the reference backing the receiver"
     ^contextReference!
 
 contextReference: reference
+    "Set the reference backing the receiver"
     contextReference := reference!
 
 !CoreGraphicsContext methodsFor: 'Operations'!
 
 fillWithRed: aRedComponent green: aGreenComponent blue: aBlueComponent
-    "I fill the context with the specified color"
+    "I fill the receiver with the sent color"
     CoreGraphicsContext cg_context_fill: contextReference red: aRedComponent green: aGreenComponent blue: aBlueComponent!
 
 updateFromByteArray: aByteArray
-    "I will copy the contents of the given byte array to the graphics context."
+    "I copy the contents of aByteArray to the receiver"
     CoreGraphicsContext cg_context_copy: contextReference source: aByteArray length: (aByteArray size)!
 
 image
-    "I produce a Core Graphics image from this graphics context."
+    "Answer a Core Graphics image produced from the receiver"
     ^CoreGraphicsContext cg_image_create_from_context: contextReference!
 
 !CoreGraphicsContext class methodsFor: 'C call-outs'!

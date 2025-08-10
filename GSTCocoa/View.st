@@ -6,70 +6,87 @@ Object subclass: #CocoaView
 
 !CocoaView class methodsFor: 'Instances'!
 
-viewWithReference: reference
-    "I instantiate a new CocoaView instance from a reference"
+viewWithReference: aReference
+    "Answer a CocoaView using aReference as its backing view"
     ^super new
-        viewReference: reference!
+        viewReference: aReference!
 
 x: anXCoordinate y: aYCoordinate width: aWidth height: aHeight
-    "I make a new view at the given coordinates and with the given dimensions."
+    "Answer a CocoaView of size aWidth by aHeight, placed at (anXCoordinate, aYCoordinate)"
     ^CocoaView viewWithReference: 
         (CocoaView cocoa_view_make: anXCoordinate y: aYCoordinate width: aWidth height: aHeight)!
 
 !CocoaView methodsFor: 'Accessors'!
 
 viewReference
+    "Answer the reference backing the receiver"
     ^viewReference!
 
 viewReference: reference
+    "Set the reference backing the receiver"
     viewReference := reference!
 
 !CocoaView methodsFor: 'Style'!
 
 backgroundRed: aRedComponent green: aGreenComponent blue: aBlueComponent
-    "I change the background color of this view"
+    "Set the background color of the receiver"
     CocoaView view: viewReference setBackgroundRed: aRedComponent green: aGreenComponent blue: aBlueComponent!
 
 !CocoaView methodsFor: 'Layout'!
 
 frame: anXCoordinate y: aYCoordinate width: aWidth height: aHeight
-    "I change the size and position of this view"
+    "Set the size and position of the receiver"
     CocoaView view: viewReference setFrame: anXCoordinate y: aYCoordinate width: aWidth height: aHeight!
 
 autoresizingMask: aMask
-    "I change the autoresizing mask of this view"
+    "Set the autoresizing mask of the receiver"
     CocoaView view: viewReference setAutoresizingMask: aMask!
 
 addSubview: aSubview
+    "Add aSubview as a subview of the receiver"
     CocoaView view: viewReference addSubview: (aSubview viewReference)!
 
 !CocoaView class methodsFor: 'Autoresizing Mask Options'!
 
 notSizable
+    "The view cannot be resized.
+    My NSAutoresizingMaskOptions counterpart is NSViewNotSizable"
     <cCall: 'kCocoaViewNotSizable' returning: #uInt
         args: #( )>!
 
 minXMargin
+    "The left margin between the view and its superview is flexible.
+    My NSAutoresizingMaskOptions counterpart is NSViewMinXMargin"
     <cCall: 'kCocoaViewMinXMargin' returning: #uInt
         args: #( )>!
 
 widthSizable
+    "The view’s width is flexible.
+    My NSAutoresizingMaskOptions counterpart is NSViewWidthSizable"
     <cCall: 'kCocoaViewWidthSizable' returning: #uInt
         args: #( )>!
 
 maxXMargin
+    "The right margin between the view and its superview is flexible.
+    My NSAutoresizingMaskOptions counterpart is NSViewMaxXMargin"
     <cCall: 'kCocoaViewMaxXMargin' returning: #uInt
         args: #( )>!
 
 minYMargin
+    "The bottom margin between the view and its superview is flexible.
+    My NSAutoresizingMaskOptions counterpart is NSViewMinYMargin"
     <cCall: 'kCocoaViewMinYMargin' returning: #uInt
         args: #( )>!
 
 heightSizable
+    "The view’s height is flexible.
+    My NSAutoresizingMaskOptions counterpart is NSViewHeightSizable"
     <cCall: 'kCocoaViewHeightSizable' returning: #uInt
         args: #( )>!
 
 maxYMargin
+    "The top margin between the view and its superview is flexible.
+    My NSAutoresizingMaskOptions counterpart is NSViewMaxYMargin"
     <cCall: 'kCocoaViewMaxYMargin' returning: #uInt
         args: #( )>!
 

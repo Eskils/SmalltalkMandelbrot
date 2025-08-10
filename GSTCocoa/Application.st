@@ -26,13 +26,13 @@ stopRunLoop
 !CocoaApplication methodsFor: 'Windows & Panels'!
 
 makeWindowOfWidth: aWidth andHeight: aHeight
-    "I make a new window with the given dimensions."
+    "Answer a CocoaWindow of size aWidth by aHeight"
     ^CocoaWindow width: aWidth height: aHeight! !
 
 !CocoaApplication class methodsFor: 'C call-outs'!
 
 cocoa_application_start
-    "I start a new Cocoa application instance. My most important puprose is to make a memory pool and a shared application instance."
+    "Use “CocoaApplication start” instead. I start a new Cocoa application instance. My most important puprose is to make a memory pool and a shared application instance."
     <cCall: 'cocoa_application_start' returning: #void
         args: #()>!
 

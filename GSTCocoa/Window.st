@@ -6,33 +6,36 @@ Object subclass: #CocoaWindow
 
 !CocoaWindow class methodsFor: 'Instances'!
 
-windowWithReference: reference
-    "I instantiate a new CocoaWindow instance"
+windowWithReference: aReference
+    "Answer a CocoaWindow using aReference as its backing window"
     ^super new
-        windowReference: reference!
+        windowReference: aReference!
 
 width: aWidth height: aHeight
-    "I make a new window with the given dimensions."
+    "Answer a CocoaWindow of size aWidth by aHeight"
     ^CocoaWindow windowWithReference: 
         (CocoaWindow cocoa_window_make: aWidth height: aHeight)!
 
 !CocoaWindow methodsFor: 'Accessors'!
 
 windowReference
+    "Answer the reference backing the receiver"
     ^windowReference!
 
 windowReference: reference
+    "Set the reference backing the receiver"
     windowReference := reference!
 
 !CocoaWindow methodsFor: 'Customizations'!
 
 title: aTitle
-    "I change the title of this window"
+    "Set the title of the receiver"
     CocoaWindow window: windowReference setTitle: aTitle! !
 
 !CocoaWindow methodsFor: 'Views'!
 
 contentView
+    "Answer the content view of the receiver"
     ^CocoaView viewWithReference:
         (CocoaWindow contentViewForWindow: windowReference)!
 

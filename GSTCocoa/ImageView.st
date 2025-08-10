@@ -7,35 +7,44 @@ CocoaView subclass: #CocoaImageView
 !CocoaImageView class methodsFor: 'Instances'!
 
 x: anXCoordinate y: aYCoordinate width: aWidth height: aHeight
-    "I make a new view at the given coordinates and with the given dimensions."
+    "Answer a CocoaImageView of size aWidth by aHeight, placed at (anXCoordinate, aYCoordinate)"
     ^CocoaImageView viewWithReference: 
         (CocoaImageView cocoa_image_view_make: anXCoordinate y: aYCoordinate width: aWidth height: aHeight)!
 
 !CocoaImageView methodsFor: 'Displaying images'!
 
 image: anImage
-    "I set the image of the given image view"
+    "Set anImage as the receiver’s image"
     CocoaImageView cocoa_image_view_setImage: viewReference image: anImage!
 
 imageScaling: anImageScaling
-    "I set the mode for scaling the displayed image."
+    "Set anImageScaling as the mode for scaling the displayed image."
     CocoaImageView cocoa_image_view_setImageScaling: viewReference imageScaling: anImageScaling!
 
 !CocoaImageView class methodsFor: 'Image Scaling'!
 
 scaleProportionallyDown
+    "If it is too large for the destination, scale the image down while preserving the aspect ratio.
+    My NSImageScaling counterpart is NSImageScaleProportionallyDown"
     <cCall: 'kCocoaImageScaleProportionallyDown' returning: #uInt
         args: #( )>!
 
 scaleAxesIndependently
+    "Scale each dimension to exactly fit destination.
+    My NSImageScaling counterpart is NSImageScaleAxesIndependently"
     <cCall: 'kCocoaImageScaleAxesIndependently' returning: #uInt
         args: #( )>!
 
 scaleNone
+    "Do not scale the image.
+    My NSImageScaling counterpart is NSImageScaleNone"
     <cCall: 'kCocoaImageScaleNone' returning: #uInt
         args: #( )>!
 
 scaleProportionallyUpOrDown
+    "Scale the image to its maximum possible dimensions while both staying within the destination 
+    area and preserving its aspect ratio.
+    My NSImageScaling counterpart is NSImageScaleProportionallyUpOrDown"
     <cCall: 'kCocoaImageScaleProportionallyUpOrDown' returning: #uInt
         args: #( )>!
 
