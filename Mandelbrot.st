@@ -22,12 +22,8 @@ contentView addSubview: imageView.
 
 imageData := ByteArray new: (components * width * height).
 
-x := 0.
-y := 0.
-
-height timesRepeat: [
-    x := 0.
-    width timesRepeat: [
+(0 to: height - 1) do: [ :y | 
+    (0 to: width - 1) do: [ :x |
         | red green blue alpha offset c z i threshold |
         offset := components * (y * width + x) + 1.
         c := ComplexNumber
@@ -62,10 +58,7 @@ height timesRepeat: [
         imageData at: (offset + 1) put: (green ceiling).
         imageData at: (offset + 2) put: (blue ceiling).
         imageData at: (offset + 3) put: alpha.
-
-        x := x + 1.
     ].
-    y := y + 1.
 ].
 
 context := CoreGraphicsContext width: width height: height.
