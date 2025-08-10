@@ -27,8 +27,8 @@ imageData := ByteArray new: (components * width * height).
         | red green blue alpha offset c z i threshold |
         offset := components * (y * width + x) + 1.
         c := ComplexNumber
-            real: 2.0 * (x / width) - 1.0 + translation x
-            imaginary: 2.0 * (y / height) - 1.0 + translation y.
+            real: 2.0 * (x / width) - 1.0 + (translation x)
+            imaginary: 2.0 * (y / height) - 1.0 + (translation y).
         z := c.
         i := 0.
 
