@@ -1,6 +1,6 @@
 # Smalltalk Mandelbrot
 
-![Screenshot of a window displaying the Mandelbrot set](Resources/smalltalk-mandelbrot-demo.png)
+<img alt="Screenshot of a window displaying the Mandelbrot set" width="400" src="Resources/smalltalk-mandelbrot-demo.png">
 
 Mandelbrot fractal implementation in Smalltalk using Cocoa bindings. 
 
@@ -10,13 +10,13 @@ Supported on macOS using GNU Smalltalk.
 
 This program is written for [GNU Smalltalk](https://www.gnu.org/software/smalltalk/). The GNU implementation of Smalltalk was chosen due to its resemblance to Smalltalk-80 and excellent support for C interopability. You can install GNU Smalltalk from their website or through Homebrew.
 
-In order to interact with Cocoa APIs, a collection of C-functions have been written to be called from Smalltalk. These are found in the **GSTCocoa** directory and need to be compiled to a library before you can run Mandelbrot.st.
+In order to interact with Cocoa APIs, a collection of C-functions have been written to be called from Smalltalk. These are found in the *GSTCocoa* directory and need to be compiled to a library before you can run Mandelbrot.st.
 
 > **Note:** GSTCocoa links against Cocoa, so this will only work on macOS.
 
 ### Instructions
 
-Follow the instructions below to compile **GSTCocoa** and run the fractal program.
+Follow the instructions below to compile GSTCocoa and run the fractal program.
 
 #### 1. Compile GSTCocoa
 
@@ -59,7 +59,7 @@ appDelegate = [[GSTCocoaAppDelegate alloc] init];
 [NSApp setDelegate:appDelegate];
 ```
 
-For the C-call outs to work, GSTCocoa expects *libGSTCocoa.dylib* at *GSTCocoa/lib*. This library is produced using `make`. More information is given in [Compile GSTCocoa](#compile-gstcocoa).
+For the C-call outs to work, GSTCocoa expects *libGSTCocoa.dylib* at *GSTCocoa/lib*. This library is produced using `make`. More information is given in [Compile GSTCocoa](#1-compile-gstcocoa).
 
 ### ComplexNumber.st
 
