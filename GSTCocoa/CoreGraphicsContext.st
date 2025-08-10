@@ -16,7 +16,7 @@ contextWithReference: aReference
     ^super new
         contextReference: aReference!
 
-!CoreGraphicsContext methodsFor: 'Accessors'!
+!CoreGraphicsContext methodsFor: 'Accessing'!
 
 contextReference
     "Answer the reference backing the receiver"

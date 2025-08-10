@@ -4,7 +4,7 @@ Object subclass: #CocoaWindow
     poolDictionaries: ''
     category: 'Windows & Panels'! !
 
-!CocoaWindow class methodsFor: 'Instances'!
+!CocoaWindow class methodsFor: 'Instance creation'!
 
 windowWithReference: aReference
     "Answer a CocoaWindow using aReference as its backing window"
@@ -16,7 +16,7 @@ width: aWidth height: aHeight
     ^CocoaWindow windowWithReference: 
         (CocoaWindow cocoa_window_make: aWidth height: aHeight)!
 
-!CocoaWindow methodsFor: 'Accessors'!
+!CocoaWindow methodsFor: 'Accessing'!
 
 windowReference
     "Answer the reference backing the receiver"

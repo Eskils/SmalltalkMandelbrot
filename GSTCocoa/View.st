@@ -4,7 +4,7 @@ Object subclass: #CocoaView
     poolDictionaries: ''
     category: 'Views'! !
 
-!CocoaView class methodsFor: 'Instances'!
+!CocoaView class methodsFor: 'Instance creation'!
 
 viewWithReference: aReference
     "Answer a CocoaView using aReference as its backing view"
@@ -16,7 +16,7 @@ x: anXCoordinate y: aYCoordinate width: aWidth height: aHeight
     ^CocoaView viewWithReference: 
         (CocoaView cocoa_view_make: anXCoordinate y: aYCoordinate width: aWidth height: aHeight)!
 
-!CocoaView methodsFor: 'Accessors'!
+!CocoaView methodsFor: 'Accessing'!
 
 viewReference
     "Answer the reference backing the receiver"

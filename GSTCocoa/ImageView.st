@@ -4,7 +4,7 @@ CocoaView subclass: #CocoaImageView
     poolDictionaries: ''
     category: 'Views'! !
 
-!CocoaImageView class methodsFor: 'Instances'!
+!CocoaImageView class methodsFor: 'Instance creation'!
 
 x: anXCoordinate y: aYCoordinate width: aWidth height: aHeight
     "Answer a CocoaImageView of size aWidth by aHeight, placed at (anXCoordinate, aYCoordinate)"

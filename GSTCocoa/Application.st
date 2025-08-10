@@ -4,7 +4,7 @@ Object subclass: #CocoaApplication
     poolDictionaries: ''
     category: 'Systems'! !
 
-!CocoaApplication class methodsFor: 'Instances'!
+!CocoaApplication class methodsFor: 'Instance creation'!
 
 start
     "I start a new Cocoa application instance. My most important puprose is to make a memory pool and a shared application instance."
